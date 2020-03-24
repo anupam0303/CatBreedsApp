@@ -1,0 +1,4 @@
+{
+    "mongoURI": "CHANGE IT TO MONGO DB URI",
+    "jwtSecret": "PLEASE PUT YOUR SECRET KEY"
+}
