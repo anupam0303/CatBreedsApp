@@ -3,7 +3,7 @@ services:
     frontend:
         container_name: cat_app_frontend
         build:
-            context: ./client
+            context: ./frontend
             dockerfile: Dockerfile
         image: anupam/cat_app_frontend
         ports:
