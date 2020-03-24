@@ -9,7 +9,7 @@ services:
         ports:
             - "3000:3000"
         volumes:
-            - ./client:/usr/src/app
+            - ./frontend:/usr/src/app
     backend:
         container_name: cat_app_backend
         build:

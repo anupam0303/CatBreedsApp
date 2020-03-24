@@ -1,7 +1,10 @@
 FROM node:lts-slim
 
+RUN mkdir -p /usr/src/app
 
-WORKDIR /home/ec2-user/catApp/
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
 
 EXPOSE 3000
 
