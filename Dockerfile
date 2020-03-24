@@ -1,10 +1,10 @@
 FROM node:lts-slim
 
-RUN mkdir -p /usr/src/app
 
-WORKDIR /usr/src/app
+
+WORKDIR /home/ec2-user/catApp/
 
 EXPOSE 5000
 
 # You can change this
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "start" ]
