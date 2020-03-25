@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
 import {
   Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button, NavItem, Modal
+  CardTitle, CardSubtitle, Button,  Modal
 } from 'reactstrap';
 import './BreedCard.css';
 import BreedDetails from '../../UI/BreedDetails/BreedDetails';
 
-
-
-const backend = 'http://localhost:5000/';
-
-const handleClick = (e) => {
-  console.log('Button Clicked: ' + e.target.value);
-  //('/breeds/'+e.target.value);
-
-}
 
 
 class BreedCard extends Component {
@@ -43,7 +34,6 @@ class BreedCard extends Component {
   render() {
     var catBreedImgURL = /*backend +*/ this.props.catBreedImgURL;
     var shortDesc = this.convertShortDec(this.props.description);
-    var linkUrl = '/breeds/' + this.props.id;
 
     var breedDetail= null;
     if (this.state.renderModal) {

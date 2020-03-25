@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {
-    Card, CardImg, CardText, CardBody,
+    CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button,
-    Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, NavItem
+    ModalBody
 } from 'reactstrap';
 
 
