@@ -8,7 +8,7 @@ const auth = require ('../../tokenHandler/auth');
 //User Model
 const User = require('../../models/User');
 
-// @route POST api/auth/user
+// @route GET api/auth/user
 // @desc Get user data
 // @access Private
 router.get('/user', auth, (request, response) => {
