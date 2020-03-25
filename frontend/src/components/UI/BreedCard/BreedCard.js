@@ -35,7 +35,6 @@ class BreedCard extends Component {
   }
 
   closeModalHandler = () => {
-    console.log('Closing Modal');
     this.setState(
       { renderModal: false }
   );
@@ -48,7 +47,6 @@ class BreedCard extends Component {
 
     var breedDetail= null;
     if (this.state.renderModal) {
-      console.log('Breed Modal should be shown');
       breedDetail = <Modal isOpen={true}>
         <BreedDetails 
           name= {this.props.name}
