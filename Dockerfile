@@ -10,8 +10,6 @@ RUN npm install
 
 ADD . /usr/src/app
 
-RUN chmod 755 upload
-
 EXPOSE 5000
 
 CMD [ "npm", "run", "start" ]
