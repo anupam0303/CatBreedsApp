@@ -41,6 +41,7 @@ export default function (state = initialState, action) {
             };
         case REGISTER_SUCCESS:
             localStorage.setItem('token', action.payload.token);
+            window.location.reload();
             return {
                 ...state,
                 ...action.payload,

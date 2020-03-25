@@ -1,37 +1,89 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  CardTitle, CardSubtitle, Button, NavItem, Modal
 } from 'reactstrap';
 import './BreedCard.css';
+import BreedDetails from '../../UI/BreedDetails/BreedDetails';
+
 
 
 const backend = 'http://localhost:5000/';
 
+const handleClick = (e) => {
+  console.log('Button Clicked: ' + e.target.value);
+  //('/breeds/'+e.target.value);
 
-const BreedCard = (props) => {
-  var catBreedImgURL = backend + props.catBreedImgURL;
-  var shortDesc= convertShortDec(props.description);
-  return (
-    <div className="top-margin">
-      <Card body outline color="primary">
-        <div className="overflow ">
-          <CardImg top width="100%" src={catBreedImgURL} alt="Card image" />
-        </div>
-        <CardBody className="text-center">
-          <CardTitle ><h4>{props.name}</h4></CardTitle>
-          <CardSubtitle>{props.origin}</CardSubtitle>
-          <CardText className="mb-2 text-muted">{shortDesc}</CardText>
-          <Button>Details</Button>
-        </CardBody>
-      </Card>
-    </div>
+}
+
+
+class BreedCard extends Component {
+
+  state = {
+    renderModal: false
+  }
+  
+  convertShortDec = (param) => {
+    return param.toString().substring(0, 140) + '...';
+  };
+
+
+  detailClickHandler = () => {
+    this.setState(
+        { renderModal: true }
+    );
+  }
+
+  closeModalHandler = () => {
+    console.log('Closing Modal');
+    this.setState(
+      { renderModal: false }
   );
-};
+  }
 
-const convertShortDec= (param) => {
+  render() {
+    var catBreedImgURL = /*backend +*/ this.props.catBreedImgURL;
+    var shortDesc = this.convertShortDec(this.props.description);
+    var linkUrl = '/breeds/' + this.props.id;
 
-  return param.toString().substring(0,140)+ '...';
+    var breedDetail= null;
+    if (this.state.renderModal) {
+      console.log('Breed Modal should be shown');
+      breedDetail = <Modal isOpen={true}>
+        <BreedDetails 
+          name= {this.props.name}
+          origin= {this.props.origin}
+          description= {this.props.description}
+          catBreedImgURL= {this.props.catBreedImgURL}
+          temperament = {this.props.temperament}
+          closeModal = {this.closeModalHandler} 
+          />
+      </Modal>
+    }
+
+    return (
+      <div className="top-margin">
+        {breedDetail}
+        <Card body outline color="primary">
+          <div className="overflow ">
+            <CardImg top width="100%" src={catBreedImgURL} alt="Card image" />
+          </div>
+          <CardBody className="text-center">
+            <CardTitle ><h4>{this.props.name}</h4></CardTitle>
+            <CardSubtitle>{this.props.origin}</CardSubtitle>
+            <CardText className="mb-2 text-muted">{shortDesc}</CardText>
+            <Button onClick = {this.detailClickHandler}> Details </Button>
+          </CardBody>
+        </Card>
+      </div>
+    );
+  }
+
+
+
+
+
+
 };
 
 export default BreedCard;

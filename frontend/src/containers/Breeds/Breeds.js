@@ -148,7 +148,7 @@ class Breeds extends Component {
                     {this.props.breed.loading ? <Spinner color="danger" /> : null}
                     {currentBreeds.map((breed) =>
                         <Col sm="auto" key={breed._id}>
-                            <BreedCard name={breed.name} origin={breed.origin} description={breed.description} catBreedImgURL={breed.catBreedImgURL} />
+                            <BreedCard id = {breed._id} name={breed.name} origin={breed.origin} description={breed.description} catBreedImgURL={breed.catBreedImgURL} temperament = {breed.temperament} />
                         </Col>)}
                 </Row>
                 <Pagination aria-label="Page navigation">
