@@ -1,4 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://catapp:Cat123aPp@cluster0-fcftx.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret": "anupamCatApp_secret"
-}
